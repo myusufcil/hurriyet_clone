@@ -2,12 +2,46 @@ package com.yusuf.hurriyet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity()
+{
+        lateinit var recyclerAdapter: RecyclerAdapter
+        lateinit var recycleView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val x = 10
+
+        recycleView=findViewById(R.id.recyclerView)
+        recyclerAdapter= RecyclerAdapter(this)
+        recyclerView.layoutManager=LinearLayoutManager(this)
+        recycleView.adapter =recyclerAdapter
+
+        ServiceInterface.create().getArticles()
+
+        val serviceInterface = ServiceInterface.create().getArticles()
+
+        serviceInterface.enqueue(object : retrofit2.Callback<List<Article>>
+        {
+            override fun onFailure(call: Call<List<Article>>, t: Throwable) {
+                Log.d("Başarısız","Başarısız")
+            }
+
+            override fun onResponse(call: Call<List<Article>>, response: Response<List<Article>>) {
+                Log.d("Başarılı","Başarılı")
+                response.body()?.let { recyclerAdapter.setArticleListItem(it) }
+            }
+
+        })
+
+
+
     }
 }
