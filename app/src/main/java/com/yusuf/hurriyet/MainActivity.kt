@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity()
         lateinit var recycleView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -24,9 +25,7 @@ class MainActivity : AppCompatActivity()
         recyclerView.layoutManager=LinearLayoutManager(this)
         recycleView.adapter =recyclerAdapter
 
-        ServiceInterface.create().getArticles()
-
-        val serviceInterface = ServiceInterface.create().getArticles()
+        val serviceInterface = ServiceInterface.create().getArticles(8)
 
         serviceInterface.enqueue(object : retrofit2.Callback<List<Article>>
         {
@@ -40,8 +39,7 @@ class MainActivity : AppCompatActivity()
             }
 
         })
-
-
-
     }
+
+
 }
