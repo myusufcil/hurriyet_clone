@@ -1,5 +1,6 @@
 package com.yusuf.hurriyet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -34,18 +35,18 @@ class MainActivity : AppCompatActivity()
             override fun onFailure(call: Call<List<Article>>, t: Throwable) {
                 Log.d("Başarısız","Başarısız")
             }
-
             override fun onResponse(call: Call<List<Article>>, response: Response<List<Article>>) {
                 Log.d("Başarılı","Başarılı")
                 response.body()?.let { recyclerAdapter.setArticleListItem(it) }
             }
 
         })
-        cardView.setOnClickListener(View.OnClickListener
-        {
-
-        })
     }
-
-
+    fun click(view:View)
+    {
+        var intent = Intent( this, DescriptionPage::class.java)
+        startActivity(intent)
+        finish()
+    }
 }
+

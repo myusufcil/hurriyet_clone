@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +28,6 @@ class RecyclerAdapter(val context: Context) : RecyclerView.Adapter<RecyclerAdapt
                 .apply(RequestOptions().centerCrop())
                 .into(holder.FileUrl)
         }
-
     }
 
     fun setArticleListItem(Article: List<Article>) {
@@ -37,7 +35,8 @@ class RecyclerAdapter(val context: Context) : RecyclerView.Adapter<RecyclerAdapt
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
+    class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
+    {
         val ID: TextView = itemView!!.findViewById(R.id.idx)
         val FileUrl: ImageView = itemView!!.findViewById(R.id.image)
         val Title: TextView = itemView!!.findViewById(R.id.title)
