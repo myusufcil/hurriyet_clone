@@ -3,9 +3,11 @@ package com.yusuf.hurriyet
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_list.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity()
         recyclerView.layoutManager=LinearLayoutManager(this)
         recycleView.adapter =recyclerAdapter
 
-        val serviceInterface = ServiceInterface.create().getArticles(8)
+        val serviceInterface = ServiceInterface.create().getArticles(10)
 
         serviceInterface.enqueue(object : retrofit2.Callback<List<Article>>
         {
@@ -37,6 +39,10 @@ class MainActivity : AppCompatActivity()
                 Log.d("Başarılı","Başarılı")
                 response.body()?.let { recyclerAdapter.setArticleListItem(it) }
             }
+
+        })
+        cardView.setOnClickListener(View.OnClickListener
+        {
 
         })
     }

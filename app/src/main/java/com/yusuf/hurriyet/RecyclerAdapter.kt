@@ -29,6 +29,7 @@ class RecyclerAdapter(val context: Context) : RecyclerView.Adapter<RecyclerAdapt
                 .apply(RequestOptions().centerCrop())
                 .into(holder.FileUrl)
         }
+
     }
 
     fun setArticleListItem(Article: List<Article>) {
@@ -40,7 +41,6 @@ class RecyclerAdapter(val context: Context) : RecyclerView.Adapter<RecyclerAdapt
         val ID: TextView = itemView!!.findViewById(R.id.idx)
         val FileUrl: ImageView = itemView!!.findViewById(R.id.image)
         val Title: TextView = itemView!!.findViewById(R.id.title)
-
     }
 
 }
