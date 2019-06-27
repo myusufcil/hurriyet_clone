@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@color/colorRelativeBackGround"
-        android:padding="8dp">
-
-    <androidx.cardview.widget.CardView
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
+<androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginTop="5dp"
             android:id="@+id/cardView"
             android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:background="@color/colorRelativeBackGround"
             app:cardCornerRadius="8dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="click">
+            android:layout_height="220dp">
+
         <RelativeLayout
+                android:padding="8dp"
                 android:background="@color/colorContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -52,4 +47,3 @@
                     android:layout_marginTop="5dp"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>

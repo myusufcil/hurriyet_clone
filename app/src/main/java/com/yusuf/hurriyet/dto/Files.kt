@@ -1,5 +1,3 @@
-package com.yusuf.hurriyet
-
-
+package com.yusuf.hurriyet.dto
 
 data class File(val FileUrl:String)
