@@ -8,5 +8,6 @@ enum class IntentBundleConstants
     IMAGEPATH,
     TITLE,
     EDITOR,
-    CONTENT
+    CONTENT,
+    PATH
 }

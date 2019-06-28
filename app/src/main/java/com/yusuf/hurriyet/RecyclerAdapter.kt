@@ -45,21 +45,15 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
 
         holder.itemView.setOnClickListener {
             var i = Intent(context, DetailActivity::class.java)
-
             i.putExtra(IntentBundleConstants.NEWSID.toString(), item.Id)
             context.startActivity(i)
 
         }
     }
 
-    fun setArticleListItem(Article: List<Article>) {
-        this.Article = Article
-        notifyDataSetChanged()
-    }
-
     class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
     {
-        val ID: TextView = itemView!!.findViewById(R.id.idx) as TextView
+        val ID: TextView = itemView!!.findViewById(R.id.text_id) as TextView
         val FileUrl: ImageView = itemView!!.findViewById(R.id.image) as ImageView
         val Title: TextView = itemView!!.findViewById(R.id.title) as TextView
     }

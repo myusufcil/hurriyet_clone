@@ -119,6 +119,5 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
     override fun getItemViewType(position: Int): Int {
         return items[position].type
     }
-    //Burası !!
 
 }

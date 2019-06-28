@@ -1,5 +1,6 @@
 package com.yusuf.hurriyet.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import com.yusuf.hurriyet.network.RetrofitFactory
 import com.yusuf.hurriyet.adapter.AppRecyclerviewAdapter
 import com.yusuf.hurriyet.common.constant.IntentBundleConstants
 import com.yusuf.hurriyet.dto.*
+import kotlinx.android.synthetic.main.item_editor.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +25,7 @@ import retrofit2.Response
 class DetailActivity : AppCompatActivity()
 {
     var newsId= ""
+
 
     lateinit var recyclerViewDescription:RecyclerView
     lateinit var recyclerAdapterDescription: AppRecyclerviewAdapter
@@ -47,8 +50,8 @@ class DetailActivity : AppCompatActivity()
         fab.setOnClickListener {
             val sharingIntent = Intent(Intent.ACTION_SEND)
             sharingIntent.type = "text/plain"
-            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Mesaj Konu")
-            sharingIntent.putExtra(Intent.EXTRA_TEXT, "Haberler Uygulamasından gönderildi")
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Haber Konu")
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, "Haberler uygulamasından gönderildi.")
             startActivity(Intent.createChooser(sharingIntent, "Paylaşmak İçin Seçiniz"))
         }
 

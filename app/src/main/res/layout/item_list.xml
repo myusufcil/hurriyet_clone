@@ -2,18 +2,19 @@
 <androidx.cardview.widget.CardView
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="4dp"
             android:id="@+id/cardView"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             android:clickable="true"
             android:background="@color/colorRelativeBackGround"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="220dp">
 
         <RelativeLayout
-                android:padding="8dp"
+                android:padding="0dp"
                 android:background="@color/colorContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -33,14 +34,14 @@
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
-                    android:layout_marginTop="154dp"
+                    android:layout_marginTop="170dp"
                     android:gravity="center"
                     android:fontFamily="@font/kodchasan"/>
             <TextView
-                    android:text="İD"
+                    android:text=""
                     android:textColor="@android:color/black"
                     android:textSize="10sp"
-                    android:id="@+id/idx"
+                    android:id="@+id/text_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="280dp"
