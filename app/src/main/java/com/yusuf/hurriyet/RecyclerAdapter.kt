@@ -20,7 +20,7 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
     var Article: List<Article> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_big_card, parent, false)
         return MyViewHolder(view)
     }
 
@@ -53,8 +53,9 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
 
     class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
     {
-        val ID: TextView = itemView!!.findViewById(R.id.text_id) as TextView
+        val ID: TextView = itemView!!.findViewById(R.id.item_list_big_card_description_text) as TextView
         val FileUrl: ImageView = itemView!!.findViewById(R.id.image) as ImageView
         val Title: TextView = itemView!!.findViewById(R.id.title) as TextView
     }
+
 }

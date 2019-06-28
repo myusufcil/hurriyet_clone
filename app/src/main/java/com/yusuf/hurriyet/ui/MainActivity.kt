@@ -1,13 +1,15 @@
 package com.yusuf.hurriyet.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yusuf.hurriyet.R
-import com.yusuf.hurriyet.RecyclerAdapter
 import com.yusuf.hurriyet.adapter.AppRecyclerviewAdapter
+import com.yusuf.hurriyet.common.constant.IntentBundleConstants
 import com.yusuf.hurriyet.dto.*
 import com.yusuf.hurriyet.network.RetrofitFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Başarılı", "Başarılı")
                 response.body()?.let { _articleList ->
                     _articleList.forEach { _article ->
-                        val obj = MainListDTO(_article.Id, _article.Title, _article.Files[0].FileUrl)
+                        val obj = MainListDTO(_article.Id, _article.Title, _article.Files[0].FileUrl,_article.Description)
                         mainList.add(obj)
                     }
                 }
@@ -50,6 +52,13 @@ class MainActivity : AppCompatActivity() {
                 recycleView.adapter = recyclerAdapter
             }
         })
+    }
+    fun onClick(baseModel: BaseModel)
+    {
+        val item = baseModel as MainListDTO
+        val i = Intent(this, DetailActivity::class.java)
+        i.putExtra(IntentBundleConstants.NEWSID.toString(), item.id)
+        startActivity(i)
     }
 }
 

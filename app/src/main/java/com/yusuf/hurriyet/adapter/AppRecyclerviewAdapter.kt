@@ -75,7 +75,7 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
 
             BaseModel.TYPE_MAIN_LIST -> {
                 MainListViewHolder(
-                    layoutInflater.inflate(R.layout.item_list,
+                    layoutInflater.inflate(R.layout.item_list_big_card,
                         parent,
                         false)
                 )

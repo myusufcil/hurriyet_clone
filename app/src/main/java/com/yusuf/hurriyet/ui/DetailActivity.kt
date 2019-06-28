@@ -25,8 +25,6 @@ import retrofit2.Response
 class DetailActivity : AppCompatActivity()
 {
     var newsId= ""
-
-
     lateinit var recyclerViewDescription:RecyclerView
     lateinit var recyclerAdapterDescription: AppRecyclerviewAdapter
 
