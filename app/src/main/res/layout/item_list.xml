@@ -29,7 +29,7 @@
                     android:background="@drawable/title_shadow"
                     android:alpha="0.8"
                     android:id="@+id/title"
-                    android:text="Selamlar"
+                    android:text="DEĞİŞTİRİLDİ"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textStyle="bold"
