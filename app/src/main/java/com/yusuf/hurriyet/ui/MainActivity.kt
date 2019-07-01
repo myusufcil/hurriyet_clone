@@ -1,7 +1,5 @@
 package com.yusuf.hurriyet.ui
 
-
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,20 +9,24 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.yusuf.hurriyet.R
 import com.yusuf.hurriyet.adapter.AppRecyclerviewAdapter
 import com.yusuf.hurriyet.dto.*
 import com.yusuf.hurriyet.network.RetrofitFactory
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_navigation_header.*
-import kotlinx.android.synthetic.main.main_container.*
+import kotlinx.android.synthetic.main.activity_main.nav_view
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.content_navigation_drawer.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
+
 
     lateinit var recyclerAdapter: AppRecyclerviewAdapter
     lateinit var recycleView: RecyclerView
@@ -34,7 +36,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         recycleView = findViewById(R.id.recyclerView)
@@ -60,7 +61,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 recycleView.adapter = recyclerAdapter
             }
         })
+
         setSupportActionBar(toolbar)
+
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -68,7 +75,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)
+        nav_view.setNavigationItemSelectedListener(navigationClickItemListener1)
     }
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -80,7 +87,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.navigation_header, menu)
+        menuInflater.inflate(R.menu.navigation_drawer, menu)
         return true
     }
 
@@ -94,31 +101,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-        when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
-            }
-            R.id.nav_gallery -> {
 
-            }
-            R.id.nav_slideshow -> {
 
-            }
-            R.id.nav_manage -> {
 
-            }
-            R.id.nav_share -> {
+    var navigationClickItemListener1 =
+        NavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_camera -> {
+                    // Handle the camera action
+                }
+                R.id.nav_gallery -> {
 
-            }
-            R.id.nav_send -> {
+                }
+                R.id.nav_slideshow -> {
 
+                }
+                R.id.nav_manage -> {
+
+                }
+                R.id.nav_share -> {
+
+                }
+                R.id.nav_send -> {
+                }
             }
+            drawer_layout.closeDrawer(GravityCompat.START)
+            true
         }
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
-    }
+
+
+
 }
 
 

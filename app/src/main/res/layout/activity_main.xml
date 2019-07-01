@@ -8,8 +8,10 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
-
-    <include layout="@layout/app_bar_navigation_header"/>
+    <include
+            layout="@layout/app_bar_navigation_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -17,7 +19,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_navigation_header"
-            app:menu="@menu/activity_navigation_header_drawer"/>
+            app:headerLayout="@layout/nav_header_navigation_drawer"
+            app:menu="@menu/activity_navigation_drawer_drawer"/>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
