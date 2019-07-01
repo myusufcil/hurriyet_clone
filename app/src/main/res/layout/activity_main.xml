@@ -20,8 +20,14 @@
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_navigation_drawer"
-            app:menu="@menu/activity_navigation_drawer_drawer"/>
+            app:menu="@menu/activity_navigation_drawer_drawer">
 
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/navigation_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+        </androidx.recyclerview.widget.RecyclerView>
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -8,15 +8,15 @@ import com.yusuf.hurriyet.adapter.viewholder.*
 
 class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
 
-    RecyclerView.Adapter<BaseViewHolder>(){
+    RecyclerView.Adapter<BaseViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): BaseViewHolder {
 
-    var layoutInflater = LayoutInflater.from(parent.context)
+        var layoutInflater = LayoutInflater.from(parent.context)
 
-        return when(viewType){
-            BaseModel.TYPE_SPOT_IMAGE ->
-            {
+        return when (viewType) {
+            BaseModel.TYPE_SPOT_IMAGE -> {
                 SpotImageViewHolder(
                     layoutInflater.inflate(
                         R.layout.item_spot_image,
@@ -25,8 +25,7 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                     )
                 )
             }
-            BaseModel.TYPE_TITLE ->
-            {
+            BaseModel.TYPE_TITLE -> {
                 TitleViewHolder(
                     layoutInflater.inflate(
                         R.layout.item_title,
@@ -35,7 +34,7 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                     )
                 )
             }
-            BaseModel.TYPE_DATE ->{
+            BaseModel.TYPE_DATE -> {
                 DateViewHolder(
                     layoutInflater.inflate(
                         R.layout.item_date,
@@ -44,34 +43,33 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                     )
                 )
             }
-        BaseModel.TYPE_EDITOR ->{
-            EditorViewHolder(
-                layoutInflater.inflate(
-                    R.layout.item_editor,
-                    parent,
-                    false
+            BaseModel.TYPE_EDITOR -> {
+                EditorViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_editor,
+                        parent,
+                        false
+                    )
                 )
-            )
-        }
-        BaseModel.TYPE_DESCRIPTION ->
-        {
-            DescriptionViewHolder(
-                layoutInflater.inflate(
-                    R.layout.item_description,
-                    parent,
-                    false
+            }
+            BaseModel.TYPE_DESCRIPTION -> {
+                DescriptionViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_description,
+                        parent,
+                        false
+                    )
                 )
-            )
-        }
-        BaseModel.TYPE_TEXT -> {
-            TextViewHolder(
-                layoutInflater.inflate(
-                    R.layout.item_text,
-                    parent,
-                    false
+            }
+            BaseModel.TYPE_TEXT -> {
+                TextViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_text,
+                        parent,
+                        false
+                    )
                 )
-            )
-        }
+            }
 
             BaseModel.TYPE_MAIN_LIST -> {
                 MainListViewHolder(
@@ -82,7 +80,7 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                     )
                 )
             }
-            else ->{
+            else -> {
                 throw IllegalArgumentException("Invalid view type")
             }
         }
@@ -91,31 +89,31 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        when (items[position].type)
-        {
+        when (items[position].type) {
             BaseModel.TYPE_SPOT_IMAGE -> {
-                (holder as  SpotImageViewHolder).bindView(items[position],position)
+                (holder as SpotImageViewHolder).bindView(items[position], position)
             }
             BaseModel.TYPE_TITLE -> {
-                (holder as  TitleViewHolder).bindView(items[position],position)
+                (holder as TitleViewHolder).bindView(items[position], position)
             }
-            BaseModel.TYPE_DATE-> {
-                (holder as  DateViewHolder).bindView(items[position],position)
+            BaseModel.TYPE_DATE -> {
+                (holder as DateViewHolder).bindView(items[position], position)
             }
-            BaseModel.TYPE_EDITOR-> {
-                (holder as  EditorViewHolder).bindView(items[position],position)
+            BaseModel.TYPE_EDITOR -> {
+                (holder as EditorViewHolder).bindView(items[position], position)
             }
-            BaseModel.TYPE_DESCRIPTION-> {
-                (holder as  DescriptionViewHolder).bindView(items[position],position)
+            BaseModel.TYPE_DESCRIPTION -> {
+                (holder as DescriptionViewHolder).bindView(items[position], position)
             }
-            BaseModel.TYPE_TEXT-> {
-                (holder as  TextViewHolder).bindView(items[position],position)
+            BaseModel.TYPE_TEXT -> {
+                (holder as TextViewHolder).bindView(items[position], position)
             }
             BaseModel.TYPE_MAIN_LIST -> {
-                (holder as MainListViewHolder).bindView(items[position],position)
+                (holder as MainListViewHolder).bindView(items[position], position)
             }
         }
     }
+
     //**************
     override fun getItemViewType(position: Int): Int {
         return items[position].type

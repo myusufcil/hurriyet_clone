@@ -27,7 +27,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-
+    lateinit var navigationRecyclerView:RecyclerView
     lateinit var recyclerAdapter: AppRecyclerviewAdapter
     lateinit var recycleView: RecyclerView
     private val mainList = mutableListOf<BaseModel>()
@@ -36,8 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
         recycleView = findViewById(R.id.recyclerView)
 
         val apiService = RetrofitFactory.create().getArticles(10)
@@ -46,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<List<Article>>, t: Throwable) {
                 Log.d("Başarısız", "Başarısız")
             }
-
             override fun onResponse(call: Call<List<Article>>, response: Response<List<Article>>) {
                 Log.d("Başarılı", "Başarılı")
                 response.body()?.let { _articleList ->
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                         mainList.add(obj)
                     }
                 }
+
                 recyclerAdapter = AppRecyclerviewAdapter(mainList)
                 recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
                 recycleView.adapter = recyclerAdapter
@@ -63,11 +65,6 @@ class MainActivity : AppCompatActivity() {
         })
 
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -85,45 +82,43 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.navigation_drawer, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
-
-
-
-
     var navigationClickItemListener1 =
         NavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_camera -> {
-                    // Handle the camera action
+                R.id.nav_header_navigation_drawer_agenda -> {
+                   Log.d("başarılı","selamlar")
                 }
-                R.id.nav_gallery -> {
+                R.id.nav_header_navigation_drawer_earth -> {
 
                 }
-                R.id.nav_slideshow -> {
+                R.id.nav_header_navigation_drawer_european -> {
 
                 }
-                R.id.nav_manage -> {
+                R.id.nav_header_navigation_drawer_turkey -> {
 
                 }
-                R.id.nav_share -> {
+                R.id.nav_header_navigation_drawer_germany -> {
 
                 }
-                R.id.nav_send -> {
+                R.id.nav_header_navigation_drawer_economy -> {
                 }
+                R.id.nav_header_navigation_drawer_life ->{
+
+                }
+                R.id.nav_header_navigation_drawer_media ->{
+
+                }
+                R.id.nav_header_navigation_drawer_sports ->{
+
+                }
+                R.id.nav_header_navigation_drawer_multimedia ->{
+
+                }
+                R.id.nav_header_navigation_drawer_offmode ->{
+
+                }R.id.nav_camera ->{
+
+            }
             }
             drawer_layout.closeDrawer(GravityCompat.START)
             true
