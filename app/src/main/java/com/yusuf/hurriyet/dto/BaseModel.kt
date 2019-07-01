@@ -11,6 +11,6 @@ interface BaseModel {
         const val TYPE_DESCRIPTION=5
         const val TYPE_TEXT=6
         const val TYPE_MAIN_LIST = 7
-
+        const val TYPE_VİEW_PAGE = 8
     }
 }

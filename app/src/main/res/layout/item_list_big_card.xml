@@ -11,6 +11,7 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             android:clickable="true"
+
             android:layout_marginTop="12dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="16dp"
@@ -20,7 +21,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -28,7 +28,6 @@
                     android:id="@+id/item_list_big_card_spot_image"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"/>
-
 
             <TextView
                     android:id="@+id/title"
@@ -42,13 +41,14 @@
                     android:textSize="18sp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:fontFamily="@font/kodchasan"/>
+                    android:fontFamily="@font/arialbd"/>
 
 
             <TextView
                     android:text="Text"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
+                    android:fontFamily="@font/arial"
                     android:id="@+id/item_list_big_card_description_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

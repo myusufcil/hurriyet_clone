@@ -16,8 +16,8 @@ import com.yusuf.hurriyet.ui.DetailActivity
 class MainListViewHolder(var view: View) : BaseViewHolder(view) {
 
     var item_spot_image_spot_activity = view.findViewById(R.id.item_list_big_card_spot_image) as ImageView
-    var item_spot_text = view.findViewById<TextView>(R.id.title) as TextView
-    var item_spot_desc_text=view.findViewById<TextView>(R.id.item_list_big_card_description_text)as TextView
+    var item_spot_text = view.findViewById(R.id.title) as TextView
+    var item_spot_desc_text=view.findViewById(R.id.item_list_big_card_description_text)as TextView
 
     override fun bindView(baseModel: BaseModel, position: Int) {
 

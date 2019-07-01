@@ -13,7 +13,7 @@
             android:id="@+id/toolbarDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Red"
+            android:background="@color/Black"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarDesc" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarDesc"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="1.0">
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -43,7 +44,7 @@
             android:src="@drawable/ic_share_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:backgroundTint="@color/Red"/>
+            app:backgroundTint="@color/Black"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
