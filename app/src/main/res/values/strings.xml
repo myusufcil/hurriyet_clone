@@ -8,4 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_navigation_header">NavigationHeader</string>
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+
+    <string name="dev_text">lorem ipsum</string>
+
 </resources>

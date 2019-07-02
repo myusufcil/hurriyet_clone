@@ -80,6 +80,25 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                     )
                 )
             }
+
+            BaseModel.TYPE_NAV_MENU_CAT -> {
+                CategoryViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_category,
+                        parent,
+                        false
+                    )
+                )
+            }
+            BaseModel.TYPE_NAV_SUB_SETTİNGS -> {
+                NavigationSubSettingsViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_navigation_sub_settings,
+                        parent,
+                        false
+                    )
+                )
+            }
             else -> {
                 throw IllegalArgumentException("Invalid view type")
             }
@@ -110,6 +129,12 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
             }
             BaseModel.TYPE_MAIN_LIST -> {
                 (holder as MainListViewHolder).bindView(items[position], position)
+            }
+            BaseModel.TYPE_NAV_MENU_CAT -> {
+                (holder as CategoryViewHolder).bindView(items[position], position)
+            }
+            BaseModel.TYPE_NAV_SUB_SETTİNGS -> {
+                (holder as NavigationSubSettingsViewHolder).bindView(items[position], position)
             }
         }
     }

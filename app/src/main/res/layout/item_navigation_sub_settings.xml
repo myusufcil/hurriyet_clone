@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        android:paddingStart="12dp">
+
+    <LinearLayout
+            android:paddingTop="12dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Switch
+                android:text="Switch"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/arial"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="12dp"
+                android:id="@+id/salt_text_mode"/>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="#B3ffffff"/>
+        <TextView
+                android:id="@+id/item_navigation_sub_settings_off_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Çevrimdışı modu"
+                android:fontFamily="@font/arial"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="#B3ffffff"/>
+        <TextView
+                android:text="Settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_navigation_sub_settings_settings_text"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/arial"
+                android:layout_marginBottom="12dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

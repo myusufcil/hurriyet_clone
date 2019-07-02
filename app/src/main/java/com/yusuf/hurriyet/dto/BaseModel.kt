@@ -12,5 +12,7 @@ interface BaseModel {
         const val TYPE_TEXT=6
         const val TYPE_MAIN_LIST = 7
         const val TYPE_VİEW_PAGE = 8
+        const val TYPE_NAV_MENU_CAT = 9
+        const val TYPE_NAV_SUB_SETTİNGS=10
     }
 }

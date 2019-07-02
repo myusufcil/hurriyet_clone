@@ -18,16 +18,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_navigation_drawer"
-            app:menu="@menu/activity_navigation_drawer_drawer">
+            android:fitsSystemWindows="true">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/navigation_recycler_view"
+                android:scrollbars="vertical"
+                android:layout_marginTop="24dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_category"/>
 
-        </androidx.recyclerview.widget.RecyclerView>
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
