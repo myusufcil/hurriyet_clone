@@ -2,6 +2,7 @@ package com.yusuf.hurriyet.network
 
 import com.yusuf.hurriyet.dto.Article
 import com.yusuf.hurriyet.dto.Content
+import com.yusuf.hurriyet.dto.NewsVideos
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -19,5 +20,9 @@ interface ApiService {
     @Headers("apikey: 2bfa00b2b9b74a60b255fe6a788e70c0")
     @GET("articles")
     fun getArticles(@Query("\$top") top: Int): Call<List<Article>>
+
+    @Headers("apikey: 2bfa00b2b9b74a60b255fe6a788e70c0")
+    @GET("newsvideos")
+    fun getNewsvideos(@Query("\$top") top: Int): Call<List<NewsVideos>>
 
 }

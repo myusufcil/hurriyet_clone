@@ -13,7 +13,7 @@ import com.yusuf.hurriyet.dto.BaseModel
 import com.yusuf.hurriyet.dto.MainListDTO
 import com.yusuf.hurriyet.ui.DetailActivity
 
-class MainListViewHolder(var view: View) : BaseViewHolder(view) {
+class NewsBigCardViewHolder(var view: View) : BaseViewHolder(view) {
 
     var item_spot_image_spot_activity = view.findViewById(R.id.item_list_big_card_spot_image) as ImageView
     var item_spot_text = view.findViewById(R.id.title) as TextView

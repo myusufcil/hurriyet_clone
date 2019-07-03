@@ -72,7 +72,7 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
             }
 
             BaseModel.TYPE_MAIN_LIST -> {
-                MainListViewHolder(
+                NewsBigCardViewHolder(
                     layoutInflater.inflate(
                         R.layout.item_list_big_card,
                         parent,
@@ -94,6 +94,15 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                 NavigationSubSettingsViewHolder(
                     layoutInflater.inflate(
                         R.layout.item_navigation_sub_settings,
+                        parent,
+                        false
+                    )
+                )
+            }
+            BaseModel.TYPE_VİEW_PAGE -> {
+                NewsVideoViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_list_video_card,
                         parent,
                         false
                     )
@@ -128,7 +137,7 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                 (holder as TextViewHolder).bindView(items[position], position)
             }
             BaseModel.TYPE_MAIN_LIST -> {
-                (holder as MainListViewHolder).bindView(items[position], position)
+                (holder as NewsBigCardViewHolder).bindView(items[position], position)
             }
             BaseModel.TYPE_NAV_MENU_CAT -> {
                 (holder as CategoryViewHolder).bindView(items[position], position)
@@ -136,6 +145,9 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
             BaseModel.TYPE_NAV_SUB_SETTİNGS -> {
                 (holder as NavigationSubSettingsViewHolder).bindView(items[position], position)
             }
+            BaseModel.TYPE_VİEW_PAGE-> {
+            (holder as NewsVideoViewHolder).bindView(items[position], position)
+        }
         }
     }
 

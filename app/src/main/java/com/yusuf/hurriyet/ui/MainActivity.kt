@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.LayoutAnimationController
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +25,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-
+    
     //NAV CATEGORY NAVİGATİON DRAWER
     var navMenuCatList: ArrayList<BaseModel> = ArrayList()
     lateinit var navigationRecyclerAdapter: AppRecyclerviewAdapter
@@ -41,46 +42,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-            //NAVİGATİON KATEGORİ KISMI ÜST TARAFTAKİ
+        //NAVİGATİON KATEGORİ
         navigationRecyclerView = findViewById(R.id.navigation_recycler_view)
         navigationRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         getCategory()
         navigationRecyclerAdapter = AppRecyclerviewAdapter(navMenuCatList)
         navigationRecyclerView.adapter = navigationRecyclerAdapter
 
-
-
-
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
+        //HOMEPAGE CONTAİNER NEWS REYCYCLERVİEW
         recycleView = findViewById(R.id.recyclerView)
+        recyclerAdapter = AppRecyclerviewAdapter(mainList)
+        recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+        recycleView.adapter = recyclerAdapter
 
-        val apiService = RetrofitFactory.create().getArticles(10)
-
-        apiService.enqueue(object : Callback<List<Article>> {
-            override fun onFailure(call: Call<List<Article>>, t: Throwable) {
-                Log.d("Başarısız", "Başarısız")
-            }
-
-            override fun onResponse(call: Call<List<Article>>, response: Response<List<Article>>) {
-                Log.d("Başarılı", "Başarılı")
-                response.body()?.let { _articleList ->
-                    _articleList.forEach { _article ->
-                        val obj =
-                            MainListDTO(_article.Id, _article.Title, _article.Files[0].FileUrl, _article.Description)
-                        mainList.add(obj)
-                    }
-                }
-
-                recyclerAdapter = AppRecyclerviewAdapter(mainList)
-                recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-                recycleView.adapter = recyclerAdapter
-            }
-        })
+        getNewsList()
 
         setSupportActionBar(toolbar)
-
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -153,10 +133,58 @@ class MainActivity : AppCompatActivity() {
         navMenuCatList.add(CategoryDTO("BASIN"))
         navMenuCatList.add(CategoryDTO("SPOR"))
         navMenuCatList.add(CategoryDTO("MULTİMEDYA"))
-        navMenuCatList.add(SubSettingsDTO("SALT METİN MODU","ÇEVRİMDIŞI MODU","AYARLAR"))
+        navMenuCatList.add(SubSettingsDTO("SALT METİN MODU", "ÇEVRİMDIŞI MODU", "AYARLAR"))
     }
 
+    fun getNewsList() {
+        val apiService = RetrofitFactory.create().getArticles(10)
+        apiService.enqueue(object : Callback<List<Article>> {
+            override fun onFailure(call: Call<List<Article>>, t: Throwable) {
+                Log.d("Başarısız", "Başarısız")
+            }
 
+            override fun onResponse(call: Call<List<Article>>, response: Response<List<Article>>) {
+                response.body()?.let { _articleList ->
+                    _articleList.forEach { _article ->
+                        val obj =
+                            MainListDTO(_article.Id, _article.Title, _article.Files[0].FileUrl, _article.Description)
+                        mainList.add(obj)
+                    }
+                    getVideoList()
+
+                }
+            }
+        })
+    }
+
+    fun getVideoList() {
+        val apiService = RetrofitFactory.create().getNewsvideos(5)
+
+        apiService.enqueue(object : Callback<List<NewsVideos>> {
+
+            override fun onFailure(call: Call<List<NewsVideos>>, t: Throwable) {
+                Log.d("sasda", "asdas")
+            }
+
+            override fun onResponse(call: Call<List<NewsVideos>>, response: Response<List<NewsVideos>>) {
+
+                response.body()?.let { _videoList ->
+
+
+                    var videoList : MutableList<NewsVideosDTO> = mutableListOf()
+
+                    _videoList.forEach { _article ->
+                        val obj = NewsVideosDTO(_article.Title, _article.Files[0].FileUrl)
+                        videoList.add(obj)
+                    }
+
+                    mainList.add(3, NewsVideosList(videoList))
+                    recyclerAdapter.notifyDataSetChanged()
+                }
+
+            }
+        })
+    }
 }
 
 
