@@ -108,6 +108,15 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
                     )
                 )
             }
+            BaseModel.TYPE_VİEW_PHOTO_PAGE -> {
+                NewsPhotoViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_list_photo_card,
+                        parent,
+                        false
+                    )
+                )
+            }
             else -> {
                 throw IllegalArgumentException("Invalid view type")
             }
@@ -147,7 +156,10 @@ class AppRecyclerviewAdapter(var items: MutableList<BaseModel>) :
             }
             BaseModel.TYPE_VİEW_PAGE-> {
             (holder as NewsVideoViewHolder).bindView(items[position], position)
-        }
+            }
+            BaseModel.TYPE_VİEW_PHOTO_PAGE-> {
+                (holder as NewsPhotoViewHolder).bindView(items[position], position)
+            }
         }
     }
 

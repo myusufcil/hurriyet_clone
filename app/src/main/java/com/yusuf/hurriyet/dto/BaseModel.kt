@@ -14,6 +14,8 @@ interface BaseModel {
         const val TYPE_VİEW_PAGE = 8
         const val TYPE_NAV_MENU_CAT = 9
         const val TYPE_NAV_SUB_SETTİNGS=10
+        const val TYPE_VİEW_PHOTO_PAGE=11
+        const val TYPE_VİDEO_CONTENT=12     //video içeriği için
 
     }
 }

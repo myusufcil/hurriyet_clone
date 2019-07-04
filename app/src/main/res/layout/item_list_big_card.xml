@@ -68,7 +68,7 @@
                 android:layout_marginRight="9dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_bookmark"
-                android:id="@+id/imageButton"/>
+                android:id="@+id/item_list_big_card_ic_bookmark"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

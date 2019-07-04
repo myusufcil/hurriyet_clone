@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.animation.LayoutAnimationController
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,7 +27,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    
+
     //NAV CATEGORY NAVİGATİON DRAWER
     var navMenuCatList: ArrayList<BaseModel> = ArrayList()
     lateinit var navigationRecyclerAdapter: AppRecyclerviewAdapter
@@ -136,8 +138,9 @@ class MainActivity : AppCompatActivity() {
         navMenuCatList.add(SubSettingsDTO("SALT METİN MODU", "ÇEVRİMDIŞI MODU", "AYARLAR"))
     }
 
+
     fun getNewsList() {
-        val apiService = RetrofitFactory.create().getArticles(10)
+        val apiService = RetrofitFactory.create().getArticles(13)
         apiService.enqueue(object : Callback<List<Article>> {
             override fun onFailure(call: Call<List<Article>>, t: Throwable) {
                 Log.d("Başarısız", "Başarısız")
@@ -151,12 +154,12 @@ class MainActivity : AppCompatActivity() {
                         mainList.add(obj)
                     }
                     getVideoList()
+                    getPhotoList()
 
                 }
             }
         })
     }
-
     fun getVideoList() {
         val apiService = RetrofitFactory.create().getNewsvideos(5)
 
@@ -178,7 +181,32 @@ class MainActivity : AppCompatActivity() {
                         videoList.add(obj)
                     }
 
-                    mainList.add(3, NewsVideosList(videoList))
+                    mainList.add(5, NewsVideosList(videoList))
+                    recyclerAdapter.notifyDataSetChanged()
+                }
+
+            }
+        })
+    }
+    fun getPhotoList(){
+        val apiService = RetrofitFactory.create().getPhotoGallery(5)
+        apiService.enqueue(object :Callback<List<NewsPhotos>>{
+            override fun onFailure(call: Call<List<NewsPhotos>>, t: Throwable) {
+                Log.d("Başarısız","Başarısız")
+            }
+
+            override fun onResponse(call: Call<List<NewsPhotos>>, response: Response<List<NewsPhotos>>) {
+                response.body()?.let { _videoList ->
+
+
+                    var photoList: MutableList<NewsPhotoDTO> = mutableListOf()
+
+                    _videoList.forEach { _photo ->
+                        val obj = NewsPhotoDTO(_photo.Description, _photo.Files[0].FileUrl)
+                        photoList.add(obj)
+                    }
+
+                    mainList.add(10, NewsPhotosList(photoList))
                     recyclerAdapter.notifyDataSetChanged()
                 }
 

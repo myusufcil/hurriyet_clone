@@ -1,6 +1,6 @@
 package com.yusuf.hurriyet.dto
 
-import com.yusuf.hurriyet.dto.File
+
 
 data class Content(
     val Id: String,

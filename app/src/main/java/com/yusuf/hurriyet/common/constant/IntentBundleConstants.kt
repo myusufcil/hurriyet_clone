@@ -9,5 +9,6 @@ enum class IntentBundleConstants
     TITLE,
     EDITOR,
     CONTENT,
-    PATH
+    PATH,
+    URL
 }
