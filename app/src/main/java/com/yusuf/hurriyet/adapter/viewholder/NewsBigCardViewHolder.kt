@@ -25,7 +25,6 @@ class NewsBigCardViewHolder(var view: View) : BaseViewHolder(view) {
         Glide.with(view.context).load(item.imageUrl)
         .apply(RequestOptions().centerCrop())
         .into(item_spot_image_spot_activity)
-
         item_spot_text.text = item.title
         item_spot_desc_text.text=item.Description
 

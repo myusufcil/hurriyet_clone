@@ -13,9 +13,6 @@ class TextViewHolder (view: View) : BaseViewHolder(view) {
     override fun bindView(items: BaseModel, position: Int) {
 
         var item = items as TextDTO
-        //item_text_textview_content.WebViewTransport()=item.text
-
-
         item_text_textview_content.loadData(item.text,"text/html; charset=utf-8", "utf-8")
 
     }

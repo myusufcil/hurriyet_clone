@@ -9,17 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".ui.DetailActivity">
 
-    <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/Red"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -33,17 +23,110 @@
             app:layout_constraintVertical_bias="1.0">
     </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/description_page_fab_share_button"
-            android:clickable="true"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:foregroundGravity="center"
-            android:src="@drawable/ic_share_black_24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Red"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
-            app:backgroundTint="@color/Red"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/description_page_fab_plus_button"
+        android:clickable="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/ic_plus_sign_to_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/Red"/>
+
+    <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/fab_save_layout"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="130dp"
+            android:gravity="bottom|end"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:text="Kaydet"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/description_page_fab_save_text"
+            android:textSize="12dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/White"
+                android:clickable="true"
+                app:fabSize="mini"
+                app:borderWidth="0dp"
+                android:layout_marginBottom="8dp"
+                android:foregroundGravity="center"
+                app:srcCompat="@drawable/ic_save"
+                android:id="@+id/description_page_fab_save_button"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/fab_share_button"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="70dp"
+            android:gravity="bottom|end"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+                android:textSize="12dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="5dp"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:text="Paylaş"
+                android:textColor="@color/Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_page_fab_share_text"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                app:fabSize="mini"
+                app:borderWidth="0dp"
+                android:backgroundTint="@color/White"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/ic_share_black_24dp"
+                android:id="@+id/description_page_fab_share_button"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

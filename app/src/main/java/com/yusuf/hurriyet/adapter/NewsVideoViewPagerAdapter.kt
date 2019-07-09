@@ -1,12 +1,14 @@
 package com.yusuf.hurriyet.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.yusuf.hurriyet.dto.NewsVideosDTO
 import android.view.LayoutInflater
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.yusuf.hurriyet.R
@@ -22,13 +24,12 @@ class NewsVideoViewPagerAdapter(var context: Context,var list: List<NewsVideosDT
         container.removeView(`object` as View)
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+    override fun instantiateItem(container: ViewGroup, position: Int): Any
+    {
 
         val inflater = LayoutInflater.from(context)
         val layout = inflater.inflate(R.layout.news_video_view_page, container, false) as ViewGroup
-
         var item= list[position]
-
         var textView = layout.findViewById<TextView>(R.id.news_video_view_page_title_text)
         val imageView:ImageView = layout.findViewById(R.id.news_video_view_page_image_view)
         textView.text=item.title

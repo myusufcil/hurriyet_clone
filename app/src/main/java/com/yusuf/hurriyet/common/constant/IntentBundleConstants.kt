@@ -10,5 +10,5 @@ enum class IntentBundleConstants
     EDITOR,
     CONTENT,
     PATH,
-    URL
+    VIDEOURL
 }

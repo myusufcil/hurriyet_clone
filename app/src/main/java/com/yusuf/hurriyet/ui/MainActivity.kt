@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.animation.LayoutAnimationController
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +17,6 @@ import com.yusuf.hurriyet.network.RetrofitFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import kotlinx.android.synthetic.main.content_navigation_drawer.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         //HOMEPAGE CONTAİNER NEWS REYCYCLERVİEW
         recycleView = findViewById(R.id.recyclerView)
         recyclerAdapter = AppRecyclerviewAdapter(mainList)
-        recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+        recycleView.layoutManager = LinearLayoutManager(this@MainActivity)
         recycleView.adapter = recyclerAdapter
 
         getNewsList()
@@ -173,7 +170,6 @@ class MainActivity : AppCompatActivity() {
 
                 response.body()?.let { _videoList ->
 
-
                     var videoList : MutableList<NewsVideosDTO> = mutableListOf()
 
                     _videoList.forEach { _article ->
@@ -198,7 +194,6 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<NewsPhotos>>, response: Response<List<NewsPhotos>>) {
                 response.body()?.let { _videoList ->
 
-
                     var photoList: MutableList<NewsPhotoDTO> = mutableListOf()
 
                     _videoList.forEach { _photo ->
@@ -209,7 +204,6 @@ class MainActivity : AppCompatActivity() {
                     mainList.add(10, NewsPhotosList(photoList))
                     recyclerAdapter.notifyDataSetChanged()
                 }
-
             }
         })
     }
