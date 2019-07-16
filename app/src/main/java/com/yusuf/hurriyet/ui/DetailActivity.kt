@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -104,8 +103,9 @@ class DetailActivity : AppCompatActivity()
                 id = 0
             )
 
-            if (favorities ==null){
+            if (favorities == null){
                 //model boş değilse liste içerisinde eklemeler cıkartılmalar yaptım.
+
                 var list : MutableList<PrefFavoriteDTOData> = mutableListOf()
                 list.add(item)
 
@@ -113,14 +113,17 @@ class DetailActivity : AppCompatActivity()
                     items = list
                 )
 
-            }else{
+            }else
+            {
                 favorities!!.items.add(item)
             }
 
-            //objemizi stringe cevirip pree yazıyoruz.
+            //objemizi stringe cevirip prefe yazıyoruz.
+
             val editor = prefences.edit()
             val yazilacakData = gson.toJson(favorities)
             editor.putString("prefnews", yazilacakData).apply()
+
         }
 
         recyclerViewDescription = findViewById(R.id.recyclerViewDescription)
@@ -131,7 +134,6 @@ class DetailActivity : AppCompatActivity()
             override fun onFailure(call: Call<Content>, t: Throwable) {
                 Log.d("Mission", "Failed")
             }
-
             override fun onResponse(call: Call<Content>, response: Response<Content>) {
                 createList(response.body()!!) //CreateList içerisindekileri teker teker recyclerViewDesc'in içerisine basıyor.
             }
