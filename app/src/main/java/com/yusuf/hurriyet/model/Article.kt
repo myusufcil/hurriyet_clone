@@ -1,4 +1,4 @@
-package com.yusuf.hurriyet.dto
+package com.yusuf.hurriyet.model
 
 data class Article(val Id: String,
                    val Files: List<File>,//file classındaki FileUrl'yi alıyor.

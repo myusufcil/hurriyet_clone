@@ -1,6 +1,9 @@
 package com.yusuf.hurriyet.network
 
-import com.yusuf.hurriyet.dto.*
+import com.yusuf.hurriyet.model.Article
+import com.yusuf.hurriyet.model.Content
+import com.yusuf.hurriyet.model.NewsPhotos
+import com.yusuf.hurriyet.model.NewsVideos
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

@@ -1,5 +1,4 @@
-package com.yusuf.hurriyet.dto
-
+package com.yusuf.hurriyet.model
 
 
 data class Content(

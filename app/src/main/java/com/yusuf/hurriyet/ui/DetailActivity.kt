@@ -18,10 +18,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.google.gson.Gson
-
-
-
-
+import com.yusuf.hurriyet.model.Content
 
 class DetailActivity : AppCompatActivity()
 {
@@ -63,11 +60,11 @@ class DetailActivity : AppCompatActivity()
         val mHideLayout = AnimationUtils.loadAnimation(this, R.anim.fab_hide_layout)
 
         fabPlusButton.setOnClickListener {
-            /* val sharingIntent = Intent(Intent.ACTION_SEND)
-             sharingIntent.type = "text/plain"
-             sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Haber Konu")
-             sharingIntent.putExtra(Intent.EXTRA_TEXT, "Haberler uygulamasından gönderildi.")
-             startActivity(Intent.createChooser(sharingIntent, "Paylaşmak İçin Seçiniz"))*/
+//             val sharingIntent = Intent(Intent.ACTION_SEND)
+//             sharingIntent.type = "text/plain"
+//             sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Haber Konu")
+//             sharingIntent.putExtra(Intent.EXTRA_TEXT, "Haberler uygulamasından gönderildi.")
+//             startActivity(Intent.createChooser(sharingIntent, "Paylaşmak İçin Seçiniz"))
             if (linearLayoutSave.visibility == View.VISIBLE && linearLayoutShare.visibility == View.VISIBLE) {
 
                 linearLayoutSave.visibility = View.GONE

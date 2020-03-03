@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +12,9 @@ import com.google.android.material.navigation.NavigationView
 import com.yusuf.hurriyet.R
 import com.yusuf.hurriyet.adapter.AppRecyclerviewAdapter
 import com.yusuf.hurriyet.dto.*
+import com.yusuf.hurriyet.model.Article
+import com.yusuf.hurriyet.model.NewsPhotos
+import com.yusuf.hurriyet.model.NewsVideos
 import com.yusuf.hurriyet.network.RetrofitFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.nav_view
@@ -177,7 +179,7 @@ class MainActivity : AppCompatActivity() {
                         videoList.add(obj)
                     }
 
-                    mainList.add(5, NewsVideosList(videoList))
+                    mainList.add(5, NewsVideosListDTO(videoList))
                     recyclerAdapter.notifyDataSetChanged()
                 }
 
@@ -201,7 +203,7 @@ class MainActivity : AppCompatActivity() {
                         photoList.add(obj)
                     }
 
-                    mainList.add(10, NewsPhotosList(photoList))
+                    mainList.add(10, NewsPhotosListDTO(photoList))
                     recyclerAdapter.notifyDataSetChanged()
                 }
             }
